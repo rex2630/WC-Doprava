@@ -28,7 +28,7 @@ Packetaaaa = window.Packetaaaa || {}, Packetaaaa.Viewport = {
             i.apiKey = e, i.usePreProdWidgetVersion = !0;
 
             var o = Packetaaaa.Widget.baseUrl, 
-                o = "yes" === e && "no" === t ? "https://widget.wedo.cz/v5/widget-content?fixedType=Ulozenka" : "no" === e && "yes" === t ? "https://widget.wedo.cz/v5/widget-content?fixedType=Box" : "https://widget.wedo.cz/v5/widget-content", 
+                o = "yes" === e && "no" === t ? "https://widget.wedo.cz/v5/widget-content?fixedType=Point" : "no" === e && "yes" === t ? "https://widget.wedo.cz/v5/widget-content?fixedType=Box" : "https://widget.wedo.cz/v5/widget-content", 
                 t = null != n; 
                 t ? wrapper = n : (Packetaaaa.Viewport.set(),
 
