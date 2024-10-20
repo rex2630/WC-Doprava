@@ -151,7 +151,7 @@ function doprava_zasilkovna_objednavka_zobrazit_pobocku( $order ) {
 
 function doprava_zasilkovna_scripts_checkout() {
   if ( is_checkout() ) {
-    $zasilkovna_settings = get_option( 'woocommerce_doprava_zasilkovna_settings' );
+    $zasilkovna_settings = get_option( 'woocommerce_doprava_zasilkovna_settings' ); ?>
       <script src="/wp-content/plugins/WC-Doprava-main/js/dpd.js"></script>
       <script type="text/javascript">
         var $storage_support = true;
@@ -264,7 +264,7 @@ function doprava_posta_objednavka_zobrazit_pobocku( $order ) {
 }
 function doprava_posta_scripts_checkout() {
   if ( is_checkout() ) {
-    $posta_settings = get_option( 'woocommerce_doprava_posta_settings' );
+    $posta_settings = get_option( 'woocommerce_doprava_posta_settings' ); ?>
       <script src="/wp-content/plugins/WC-Doprava-main/js/cp.js"></script>
       <script type="text/javascript">
         var $storage_support = true;
@@ -379,7 +379,7 @@ function doprava_wedo_objednavka_zobrazit_pobocku( $order ) {
 
 function doprava_wedo_scripts_checkout() {
   if ( is_checkout() ) {
-    $wedo_settings = get_option( 'woocommerce_doprava_wedo_settings' ); 
+    $wedo_settings = get_option( 'woocommerce_doprava_wedo_settings' ); ?>
       <script src="/wp-content/plugins/WC-Doprava-main/js/wedo.js"></script>
       <script type="text/javascript">
         var $storage_support = true;
@@ -567,7 +567,7 @@ function add_custom_order_totals_row1( $total_rows, $order, $tax_display ) {
 }
 function doprava_gls_scripts_checkout() {
   if ( is_checkout() ) {
-    $gls_settings = get_option( 'woocommerce_doprava_gls_settings' ); 
+    $gls_settings = get_option( 'woocommerce_doprava_gls_settings' ); ?>
       <script src="/wp-content/plugins/WC-Doprava-main/js/gls.js"></script>
       <script type="text/javascript">
         var $storage_support = true;
