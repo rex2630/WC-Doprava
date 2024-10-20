@@ -122,11 +122,7 @@ function doprava_zasilkovna_zobrazit_pobocky() {
 function doprava_zasilkovna_ulozeni_pobocky( $item_id, $item ) {
   if ( isset( $_POST["packeta-point-id"] ) ) {
     if ( ! empty( $_POST["packeta-point-id"] ) && strpos( $_POST["shipping_method"][0], "doprava_zasilkovna" ) !== false ) {
-      if ( version_compare( WC_VERSION, '3.0', '<' ) ) {
-        $item_type = $item['order_item_type'];
-      } else {
-        $item_type = $item->get_type();
-      }
+      $item_type = $item->get_type();
       if ( $item_type == 'shipping' ) {
         wc_add_order_item_meta( $item_id, 'DPD Pickup', esc_attr( $_POST['packeta-point-id'] ), true );
       }
@@ -145,11 +141,7 @@ function doprava_zasilkovna_overit_pobocku() {
 function doprava_zasilkovna_objednavka_zobrazit_pobocku( $order ) {
   if ( $order->has_shipping_method( 'doprava_zasilkovna' ) ) {
     foreach ( $order->get_shipping_methods() as $shipping_item_id => $shipping_item ) {
-      if ( version_compare( WC_VERSION, '3.0', '<' ) ) {
-        $pobocka = $order->get_item_meta( $shipping_item_id, 'DPD Pickup', true );
-      } else {
-        $pobocka = wc_get_order_item_meta( $shipping_item_id, 'DPD Pickup', true );
-      }
+      $pobocka = wc_get_order_item_meta( $shipping_item_id, 'DPD Pickup', true );
       if ( ! empty( $pobocka ) ) {
         echo "<p><strong>DPD Pickup:</strong> " . $pobocka . "</p>";
       }
@@ -246,11 +238,7 @@ function doprava_posta_zobrazit_pobocky() {
 function doprava_posta_ulozeni_pobocky( $item_id, $item ) {
   if ( isset( $_POST["packeta-point-id"] ) ) {
     if ( ! empty( $_POST["packeta-point-id"] ) && strpos( $_POST["shipping_method"][0], "doprava_posta" ) !== false ) {
-      if ( version_compare( WC_VERSION, '3.0', '<' ) ) {
-        $item_type = $item['order_item_type'];
-      } else {
-        $item_type = $item->get_type();
-      }
+      $item_type = $item->get_type();
       if ( $item_type == 'shipping' ) {
         wc_add_order_item_meta( $item_id, 'Česká pošta', esc_attr( $_POST['packeta-point-id'] ), true );
       }
@@ -269,11 +257,7 @@ function doprava_posta_overit_pobocku() {
 function doprava_posta_objednavka_zobrazit_pobocku( $order ) {
   if ( $order->has_shipping_method( 'doprava_posta' ) ) {
     foreach ( $order->get_shipping_methods() as $shipping_item_id => $shipping_item ) {
-      if ( version_compare( WC_VERSION, '3.0', '<' ) ) {
-        $pobocka = $order->get_item_meta( $shipping_item_id, 'Česká pošta', true );
-      } else {
-        $pobocka = wc_get_order_item_meta( $shipping_item_id, 'Česká pošta', true );
-      }
+      $pobocka = wc_get_order_item_meta( $shipping_item_id, 'Česká pošta', true );
       if ( ! empty( $pobocka ) ) {
         echo "<p><strong>Česká pošta:</strong> " . $pobocka . "</p>";
       }
@@ -372,11 +356,7 @@ function doprava_wedo_zobrazit_pobocky() {
 function doprava_wedo_ulozeni_pobocky( $item_id, $item ) {
   if ( isset( $_POST["packeta-point-id"] ) ) {
     if ( ! empty( $_POST["packeta-point-id"] ) && strpos( $_POST["shipping_method"][0], "doprava_wedo" ) !== false ) {
-      if ( version_compare( WC_VERSION, '3.0', '<' ) ) {
-        $item_type = $item['order_item_type'];
-      } else {
-        $item_type = $item->get_type();
-      }
+      $item_type = $item->get_type();
       if ( $item_type == 'shipping' ) {
         wc_add_order_item_meta( $item_id, 'WE|DO', esc_attr( $_POST['packeta-point-id'] ), true );
       }
@@ -395,11 +375,7 @@ function doprava_wedo_overit_pobocku() {
 function doprava_wedo_objednavka_zobrazit_pobocku( $order ) {
   if ( $order->has_shipping_method( 'doprava_wedo' ) ) {
     foreach ( $order->get_shipping_methods() as $shipping_item_id => $shipping_item ) {
-      if ( version_compare( WC_VERSION, '3.0', '<' ) ) {
-        $pobocka = $order->get_item_meta( $shipping_item_id, 'WE|DO', true );
-      } else {
-        $pobocka = wc_get_order_item_meta( $shipping_item_id, 'WE|DO', true );
-      }
+      $pobocka = wc_get_order_item_meta( $shipping_item_id, 'WE|DO', true );
       if ( ! empty( $pobocka ) ) {
         echo "<p><strong>WE|DO:</strong> " . $pobocka . "</p>";
       }
@@ -499,11 +475,7 @@ function doprava_gls_zobrazit_pobocky() {
 function doprava_gls_ulozeni_pobocky( $item_id, $item ) {
   if ( isset( $_POST["packeta-point-id"] ) ) {
     if ( ! empty( $_POST["packeta-point-id"] ) && strpos( $_POST["shipping_method"][0], "doprava_gls" ) !== false ) {
-      if ( version_compare( WC_VERSION, '3.0', '<' ) ) {
-        $item_type = $item['order_item_type'];
-      } else {
-        $item_type = $item->get_type();
-      }
+      $item_type = $item->get_type();
       if ( $item_type == 'shipping' ) {
         wc_add_order_item_meta( $item_id, 'GLS', esc_attr( $_POST['packeta-point-id'] ), true );
       }
@@ -522,12 +494,7 @@ function doprava_gls_overit_pobocku() {
 function doprava_gls_objednavka_zobrazit_pobocku( $order ) {
   if ( $order->has_shipping_method( 'doprava_gls' ) ) {
     foreach ( $order->get_shipping_methods() as $shipping_item_id => $shipping_item ) {
-      if ( version_compare( WC_VERSION, '3.0', '<' ) ) {
-        $pobocka = $order->get_item_meta( $shipping_item_id, 'GLS', true );
-      } else {
-        $pobocka = wc_get_order_item_meta( $shipping_item_id, 'GLS', true );
-        
-      }
+      $pobocka = wc_get_order_item_meta( $shipping_item_id, 'GLS', true );
     }
   }
 }
@@ -536,12 +503,7 @@ add_filter( 'woocommerce_get_order_item_totals', 'add_custom_order_totals_row1',
 function add_custom_order_totals_row1( $total_rows, $order, $tax_display ) {
     if ( $order->has_shipping_method( 'doprava_gls' ) ) {
     foreach ( $order->get_shipping_methods() as $shipping_item_id => $shipping_item ) {
-      if ( version_compare( WC_VERSION, '3.0', '<' ) ) {
-        $pobocka = $order->get_item_meta( $shipping_item_id, 'GLS', true );
-      } else {
-        $pobocka = wc_get_order_item_meta( $shipping_item_id, 'GLS', true );
-        
-      }
+      $pobocka = wc_get_order_item_meta( $shipping_item_id, 'GLS', true );
     }
      $gran_total = $total_rows['order_total'];
     unset( $total_rows['order_total'] );
@@ -557,12 +519,7 @@ function add_custom_order_totals_row1( $total_rows, $order, $tax_display ) {
     }
     else if ( $order->has_shipping_method( 'doprava_posta' ) ) {
     foreach ( $order->get_shipping_methods() as $shipping_item_id => $shipping_item ) {
-      if ( version_compare( WC_VERSION, '3.0', '<' ) ) {
-        $pobocka = $order->get_item_meta( $shipping_item_id, 'Česká pošta', true );
-      } else {
-        $pobocka = wc_get_order_item_meta( $shipping_item_id, 'Česká pošta', true );
-        
-      }
+      $pobocka = wc_get_order_item_meta( $shipping_item_id, 'Česká pošta', true );
     }
      $gran_total = $total_rows['order_total'];
     unset( $total_rows['order_total'] );
@@ -578,12 +535,7 @@ function add_custom_order_totals_row1( $total_rows, $order, $tax_display ) {
     }
     else if ( $order->has_shipping_method( 'doprava_wedo' ) ) {
     foreach ( $order->get_shipping_methods() as $shipping_item_id => $shipping_item ) {
-      if ( version_compare( WC_VERSION, '3.0', '<' ) ) {
-        $pobocka = $order->get_item_meta( $shipping_item_id, 'WE|DO', true );
-      } else {
-        $pobocka = wc_get_order_item_meta( $shipping_item_id, 'WE|DO', true );
-        
-      }
+      $pobocka = wc_get_order_item_meta( $shipping_item_id, 'WE|DO', true );
     }
      $gran_total = $total_rows['order_total'];
     unset( $total_rows['order_total'] );
@@ -599,12 +551,7 @@ function add_custom_order_totals_row1( $total_rows, $order, $tax_display ) {
     }
     else if ( $order->has_shipping_method( 'doprava_zasilkovna' ) ) {
     foreach ( $order->get_shipping_methods() as $shipping_item_id => $shipping_item ) {
-      if ( version_compare( WC_VERSION, '3.0', '<' ) ) {
-        $pobocka = $order->get_item_meta( $shipping_item_id, 'DPD Pickup', true );
-      } else {
-        $pobocka = wc_get_order_item_meta( $shipping_item_id, 'DPD Pickup', true );
-        
-      }
+      $pobocka = wc_get_order_item_meta( $shipping_item_id, 'DPD Pickup', true );
     }
     $gran_total = $total_rows['order_total'];
     unset( $total_rows['order_total'] );
@@ -690,4 +637,3 @@ function doprava_gls_scripts_checkout() {
     <?php 
   }
 }
-
