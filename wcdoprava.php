@@ -387,7 +387,7 @@ function doprava_wedo_ulozeni_pobocky( $item_id, $item ) {
 function doprava_wedo_overit_pobocku() {
   if ( isset( $_POST["packeta-point-id"] ) ) {
     if (( empty( $_POST["packeta-point-id"])||$_POST["packeta-point-id"]==="undefined") && strpos( $_POST["shipping_method"][0], "doprava_wedo" ) !== false ) {
-      wc_add_notice( 'Pokud chcete doručit zboží prostřednictvím České pošty, zvolte prosím pobočku.', 'error' );
+      wc_add_notice( 'Pokud chcete doručit zboží prostřednictvím WE|DO, zvolte prosím pobočku.', 'error' );
     }
   }
 }
@@ -514,7 +514,7 @@ function doprava_gls_ulozeni_pobocky( $item_id, $item ) {
 function doprava_gls_overit_pobocku() {
   if ( isset( $_POST["packeta-point-id"] ) ) {
     if (( empty( $_POST["packeta-point-id"])||$_POST["packeta-point-id"]==="undefined") && strpos( $_POST["shipping_method"][0], "doprava_wedo" ) !== false ) {
-      wc_add_notice( 'Pokud chcete doručit zboží prostřednictvím České pošty, zvolte prosím pobočku.', 'error' );
+      wc_add_notice( 'Pokud chcete doručit zboží prostřednictvím GLS, zvolte prosím pobočku.', 'error' );
     }
   }
 }
