@@ -110,7 +110,7 @@ function doprava_zasilkovna_zobrazit_pobocky() {
         </th>
         <td>
             <input type="hidden" id="packeta-point-id" name="packeta-point-id" value="<?php echo $zasilkovna_branches; ?>">
-          <input type="button" onclick="Packeta.Widget.pick(packetaApiKey, showSelectedPickupPoint)" value="Zvolit pobočku">
+          <input type="button" onclick="Packeta.Widget.pick(showSelectedPickupPoint)" value="Zvolit pobočku">
         </td>
       </tr>
       <tr><th>Vybraná pobočka:</th><td><span id="packeta-point-info" style="font-weight:bold;"><?php if ( $zasilkovna_branches ) { echo $zasilkovna_branches; } else { echo "Zatím nevybráno"; } ?></span></td></tr>
@@ -151,11 +151,9 @@ function doprava_zasilkovna_objednavka_zobrazit_pobocku( $order ) {
 
 function doprava_zasilkovna_scripts_checkout() {
   if ( is_checkout() ) {
-    $zasilkovna_settings = get_option( 'woocommerce_doprava_zasilkovna_settings' ); 
-     $api_klic = $zasilkovna_settings['op1']; ?>
+    $zasilkovna_settings = get_option( 'woocommerce_doprava_zasilkovna_settings' );
       <script src="/wp-content/plugins/WC-Doprava-main/js/dpd.js"></script>
       <script type="text/javascript">
-        var packetaApiKey = '<?php echo $api_klic; ?>';
         var $storage_support = true;
         try {
           $storage_support = ( 'sessionStorage' in window && window.sessionStorage !== null );
@@ -227,7 +225,7 @@ function doprava_posta_zobrazit_pobocky() {
         </th>
         <td>
         <input type="hidden" id="packeta-point-id" name="packeta-point-id" value="<?php echo $zasilkovna_branches; ?>">
-          <input type="button" onclick="Packetaa.Widget.pick(packetaApiKey,packetaApiKey2, showSelectedPickupPoint)" value="Zvolit pobočku">
+          <input type="button" onclick="Packetaa.Widget.pick(showSelectedPickupPoint)" value="Zvolit pobočku">
         </td>
       </tr>
       <tr><th>Vybraná pobočka:</th><td><span id="packeta-point-info" style="font-weight:bold;"><?php if ( $posta_branches ) { echo $posta_branches; } else { echo "Zatím nevybráno"; } ?></span></td></tr>
@@ -266,13 +264,9 @@ function doprava_posta_objednavka_zobrazit_pobocku( $order ) {
 }
 function doprava_posta_scripts_checkout() {
   if ( is_checkout() ) {
-    $posta_settings = get_option( 'woocommerce_doprava_posta_settings' ); 
-     $api_klic = $posta_settings['op1'];
-     $api_klic2 = $posta_settings['op2']; ?>
+    $posta_settings = get_option( 'woocommerce_doprava_posta_settings' );
       <script src="/wp-content/plugins/WC-Doprava-main/js/cp.js"></script>
       <script type="text/javascript">
-        var packetaApiKey = '<?php echo $api_klic; ?>';
-        var packetaApiKey2= '<?php echo $api_klic2; ?>';
         var $storage_support = true;
         try {
           $storage_support = ( 'sessionStorage' in window && window.sessionStorage !== null );
@@ -344,7 +338,7 @@ function doprava_wedo_zobrazit_pobocky() {
         </th>
         <td>
             <input type="hidden" id="packeta-point-id" name="packeta-point-id" value="<?php echo $zasilkovna_branches; ?>">
-          <input type="button" onclick="Packetaaaa.Widget.pick(packetaApiKey,packetaApiKey2, showSelectedPickupPoint)" value="Zvolit pobočku">
+          <input type="button" onclick="Packetaaaa.Widget.pick(showSelectedPickupPoint)" value="Zvolit pobočku">
         </td>
       </tr>
       <tr><th>Vybraná pobočka:</th><td><span id="packeta-point-info" style="font-weight:bold;"><?php if ( $wedo_branches ) { echo $wedo_branches; } else { echo "Zatím nevybráno"; } ?></span></td></tr>
@@ -386,12 +380,8 @@ function doprava_wedo_objednavka_zobrazit_pobocku( $order ) {
 function doprava_wedo_scripts_checkout() {
   if ( is_checkout() ) {
     $wedo_settings = get_option( 'woocommerce_doprava_wedo_settings' ); 
-     $api_klic = $wedo_settings['op1'];
-     $api_klic2 = $wedo_settings['op2']; ?>
       <script src="/wp-content/plugins/WC-Doprava-main/js/wedo.js"></script>
       <script type="text/javascript">
-        var packetaApiKey = '<?php echo $api_klic; ?>';
-        var packetaApiKey2= '<?php echo $api_klic2; ?>';
         var $storage_support = true;
         try {
           $storage_support = ( 'sessionStorage' in window && window.sessionStorage !== null );
@@ -463,7 +453,7 @@ function doprava_gls_zobrazit_pobocky() {
         </th>
         <td>
          <input type="hidden" id="packeta-point-id" name="packeta-point-id" value="<?php echo $zasilkovna_branches; ?>">
-          <input type="button" onclick="Packetaaaaa.Widget.pick(packetaApiKey,packetaApiKey2, showSelectedPickupPoint)" value="Zvolit pobočku">
+          <input type="button" onclick="Packetaaaaa.Widget.pick(showSelectedPickupPoint)" value="Zvolit pobočku">
         </td>
       </tr>
       <tr><th>Vybraná pobočka:</th><td><span id="packeta-point-info" style="font-weight:bold;"><?php if ( $gls_branches ) { echo $wedo_branches; } else { echo "Zatím nevybráno"; } ?></span></td></tr>
@@ -578,12 +568,8 @@ function add_custom_order_totals_row1( $total_rows, $order, $tax_display ) {
 function doprava_gls_scripts_checkout() {
   if ( is_checkout() ) {
     $gls_settings = get_option( 'woocommerce_doprava_gls_settings' ); 
-     $api_klic = $gls_settings['op1'];
-     $api_klic2 = $gls_settings['op2']; ?>
       <script src="/wp-content/plugins/WC-Doprava-main/js/gls.js"></script>
       <script type="text/javascript">
-        var packetaApiKey = '<?php echo $api_klic; ?>';
-        var packetaApiKey2= '<?php echo $api_klic2; ?>';
         var $storage_support = true;
         try {
           $storage_support = ( 'sessionStorage' in window && window.sessionStorage !== null );
