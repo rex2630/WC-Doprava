@@ -224,7 +224,7 @@ function doprava_posta_zobrazit_pobocky() {
           <img src="/wp-content/plugins/WC-Doprava-main/loga/cp.svg" width="200" border="0">
         </th>
         <td>
-        <input type="hidden" id="packeta-point-id" name="packeta-point-id" value="<?php echo $zasilkovna_branches; ?>">
+        <input type="hidden" id="packeta-point-id" name="packeta-point-id" value="<?php echo $posta_branches; ?>">
           <input type="button" onclick="Packetaa.Widget.pick(showSelectedPickupPoint)" value="Zvolit pobočku">
         </td>
       </tr>
@@ -337,7 +337,7 @@ function doprava_wedo_zobrazit_pobocky() {
           <img src="/wp-content/plugins/WC-Doprava-main/loga/WE_DO_na_bile_RGB.png" width="200" border="0">
         </th>
         <td>
-            <input type="hidden" id="packeta-point-id" name="packeta-point-id" value="<?php echo $zasilkovna_branches; ?>">
+            <input type="hidden" id="packeta-point-id" name="packeta-point-id" value="<?php echo $wedo_branches; ?>">
           <input type="button" onclick="Packetaaaa.Widget.pick(showSelectedPickupPoint)" value="Zvolit pobočku">
         </td>
       </tr>
@@ -452,11 +452,11 @@ function doprava_gls_zobrazit_pobocky() {
           <img src="/wp-content/plugins/WC-Doprava-main/loga/GLS_Logo_2021_RGB_GLSBlue.png" width="200" border="0">
         </th>
         <td>
-         <input type="hidden" id="packeta-point-id" name="packeta-point-id" value="<?php echo $zasilkovna_branches; ?>">
+         <input type="hidden" id="packeta-point-id" name="packeta-point-id" value="<?php echo $gls_branches; ?>">
           <input type="button" onclick="Packetaaaaa.Widget.pick(showSelectedPickupPoint)" value="Zvolit pobočku">
         </td>
       </tr>
-      <tr><th>Vybraná pobočka:</th><td><span id="packeta-point-info" style="font-weight:bold;"><?php if ( $gls_branches ) { echo $wedo_branches; } else { echo "Zatím nevybráno"; } ?></span></td></tr>
+      <tr><th>Vybraná pobočka:</th><td><span id="packeta-point-info" style="font-weight:bold;"><?php if ( $gls_branches ) { echo $gls_branches; } else { echo "Zatím nevybráno"; } ?></span></td></tr>
     <?php } else { ?>
     <?php }
   }
