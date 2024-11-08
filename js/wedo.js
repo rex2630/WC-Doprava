@@ -90,6 +90,6 @@ Packetaaaa = window.Packetaaaa || {}, Packetaaaa.Viewport = {
                 wrapper.addEventListener("keyup", function (e) {
                     27 == e.keyCode && (wrapper.setAttribute("style", "visibility: hidden"),
 
-                    document.getElementById("packeta-point-info").textContent = "Zatímm nevybráno");
+                    document.getElementById("packeta-point-info").textContent = "Zatím nevybráno");
                 }), wrapper.focus();
         }};
