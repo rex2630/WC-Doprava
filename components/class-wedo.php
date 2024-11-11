@@ -4,7 +4,7 @@ class WC_Shipping_doprava_WEDO
 extends WC_Shipping_Method{public function __construct($instance_id=0){
   $this->instance_id=absint($instance_id);
   $this->id='doprava_wedo';
-  $this->method_title='WE|DO';$this->method_description=' Zákazníci si na mapě snadno a pohodlně vyberou nejbližší výdejní místo ONE POINT nebo ONE BOX.';
+  $this->method_title='ONE';$this->method_description=' Zákazníci si na mapě snadno a pohodlně vyberou nejbližší výdejní místo ONE POINT nebo ONE BOX.';
   $aktivace_wedo=get_option('wc_doprava_doprava_wedo');$this->enabled=$aktivace_wedo;
   $this->supports=array('shipping-zones','settings','instance-settings','instance-settings-modal',);
   $this->init();

@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: WooCommerce doprava
- * Description: Implementace českých kurýrních služeb (DPD Pickup, Česká pošta, WE|DO, GLS) do Woocomerce
+ * Description: Implementace českých kurýrních služeb (DPD Pickup, Česká pošta, ONE, GLS) do Woocomerce
  * Version: 1.1
  * Author: Tandler
  * Author URI: https://github.com/tandler5
@@ -20,7 +20,7 @@ add_action( 'wp_footer', 'doprava_posta_scripts_checkout', 100 );
 add_action( 'woocommerce_review_order_after_shipping', 'doprava_posta_zobrazit_pobocky' );
 add_action( 'woocommerce_new_order_item', 'doprava_posta_ulozeni_pobocky', 10, 2 );
 add_action( 'woocommerce_checkout_process', 'doprava_posta_overit_pobocku' );
-////////////////WE|DO/////////////////////////////////
+////////////////ONE/////////////////////////////////
 add_action( 'woocommerce_shipping_init', 'doprava_doprava_wedo_init' );
 add_filter( 'woocommerce_shipping_methods', 'doprava_doprava_wedo' );
 add_action( 'wp_footer', 'doprava_wedo_scripts_checkout', 100 );
@@ -371,7 +371,7 @@ function doprava_wedo_objednavka_zobrazit_pobocku( $order ) {
     foreach ( $order->get_shipping_methods() as $shipping_item_id => $shipping_item ) {
       $pobocka = wc_get_order_item_meta( $shipping_item_id, 'ONE', true );
       if ( ! empty( $pobocka ) ) {
-        echo "<p><strong>WE|DO:</strong> " . $pobocka . "</p>";
+        echo "<p><strong>ONE:</strong> " . $pobocka . "</p>";
       }
     }
   }
@@ -380,7 +380,7 @@ function doprava_wedo_objednavka_zobrazit_pobocku( $order ) {
 function doprava_wedo_scripts_checkout() {
   if ( is_checkout() ) {
     $wedo_settings = get_option( 'woocommerce_doprava_wedo_settings' ); ?>
-      <script src="/wp-content/plugins/WC-Doprava-main/js/wedo.js"></script>
+      <script src="/wp-content/plugins/WC-Doprava-main/js/one.js"></script>
       <script type="text/javascript">
         var $storage_support = true;
         try {
@@ -525,7 +525,7 @@ function add_custom_order_totals_row1( $total_rows, $order, $tax_display ) {
     }
     else if ( $order->has_shipping_method( 'doprava_wedo' ) ) {
     foreach ( $order->get_shipping_methods() as $shipping_item_id => $shipping_item ) {
-      $pobocka = wc_get_order_item_meta( $shipping_item_id, 'WE|DO', true );
+      $pobocka = wc_get_order_item_meta( $shipping_item_id, 'ONE', true );
     }
      $gran_total = $total_rows['order_total'];
     unset( $total_rows['order_total'] );
