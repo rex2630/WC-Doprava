@@ -106,7 +106,7 @@ function doprava_zasilkovna_zobrazit_pobocky() {
     if ( strpos( $chosen_shipping_method[0], "doprava_zasilkovna" ) !== false ) { ?>
       <tr class="zasilkovna">
         <th>
-          <img src="/wp-content/plugins/WC-Doprava-main/loga/DPD_logo_redgrad_rgb-300x133.png" width="200" border="0">
+          <img src="/wp-content/plugins/WC-Doprava-main/loga/dpd.svg" width="200" border="0">
         </th>
         <td>
             <input type="hidden" id="packeta-point-id" name="packeta-point-id" value="<?php echo $zasilkovna_branches; ?>">
@@ -334,7 +334,7 @@ function doprava_wedo_zobrazit_pobocky() {
     if ( strpos( $chosen_shipping_method[0], "doprava_wedo" ) !== false ) { ?>
       <tr class="wedo">
         <th>
-          <img src="/wp-content/plugins/WC-Doprava-main/loga/WE_DO_na_bile_RGB.png" width="200" border="0">
+          <img src="/wp-content/plugins/WC-Doprava-main/loga/one.svg" width="200" border="0">
         </th>
         <td>
             <input type="hidden" id="packeta-point-id" name="packeta-point-id" value="<?php echo $wedo_branches; ?>">
@@ -352,7 +352,7 @@ function doprava_wedo_ulozeni_pobocky( $item_id, $item ) {
     if ( ! empty( $_POST["packeta-point-id"] ) && strpos( $_POST["shipping_method"][0], "doprava_wedo" ) !== false ) {
       $item_type = $item->get_type();
       if ( $item_type == 'shipping' ) {
-        wc_add_order_item_meta( $item_id, 'WE|DO', esc_attr( $_POST['packeta-point-id'] ), true );
+        wc_add_order_item_meta( $item_id, 'ONE', esc_attr( $_POST['packeta-point-id'] ), true );
       }
     }
   }
@@ -361,7 +361,7 @@ function doprava_wedo_ulozeni_pobocky( $item_id, $item ) {
 function doprava_wedo_overit_pobocku() {
   if ( isset( $_POST["packeta-point-id"] ) ) {
     if (( empty( $_POST["packeta-point-id"])||$_POST["packeta-point-id"]==="undefined") && strpos( $_POST["shipping_method"][0], "doprava_wedo" ) !== false ) {
-      wc_add_notice( 'Pokud chcete doručit zboží prostřednictvím WE|DO, zvolte prosím pobočku.', 'error' );
+      wc_add_notice( 'Pokud chcete doručit zboží prostřednictvím ONE, zvolte prosím pobočku.', 'error' );
     }
   }
 }
@@ -369,7 +369,7 @@ function doprava_wedo_overit_pobocku() {
 function doprava_wedo_objednavka_zobrazit_pobocku( $order ) {
   if ( $order->has_shipping_method( 'doprava_wedo' ) ) {
     foreach ( $order->get_shipping_methods() as $shipping_item_id => $shipping_item ) {
-      $pobocka = wc_get_order_item_meta( $shipping_item_id, 'WE|DO', true );
+      $pobocka = wc_get_order_item_meta( $shipping_item_id, 'ONE', true );
       if ( ! empty( $pobocka ) ) {
         echo "<p><strong>WE|DO:</strong> " . $pobocka . "</p>";
       }
@@ -449,7 +449,7 @@ function doprava_gls_zobrazit_pobocky() {
     if ( strpos( $chosen_shipping_method[0], "doprava_gls" ) !== false ) { ?>
       <tr class="gls">
         <th>
-          <img src="/wp-content/plugins/WC-Doprava-main/loga/GLS_Logo_2021_RGB_GLSBlue.png" width="200" border="0">
+          <img src="/wp-content/plugins/WC-Doprava-main/loga/gls.svg" width="200" border="0">
         </th>
         <td>
          <input type="hidden" id="packeta-point-id" name="packeta-point-id" value="<?php echo $gls_branches; ?>">
